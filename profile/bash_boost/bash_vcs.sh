@@ -23,7 +23,7 @@ function detect_vcs {
 	        base_dir=$PWD
         fi
         
-        vcs_branch=$(parse_git_branch)
+        vcs_branch=$(__git_ps1 "%s")
         
         alias pull="git pull --rebase"
         alias commit="git commit -a"
