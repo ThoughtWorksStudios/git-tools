@@ -3,9 +3,16 @@ if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
 fi
 
-readonly _reset=$(tput sgr0)
-readonly _red=$(tput setaf 1)
-readonly _green=$(tput setaf 2)
+function if_declared {
+  local name=$1
+  eval "test -z \"\${$name:+''}\"" && return 1
+  return 0
+}
+
+# define constants only once
+if_declared _reset || readonly _reset=$(tput sgr0)
+if_declared _red   || readonly _red=$(tput setaf 1)
+if_declared _green || readonly _green=$(tput setaf 2)
 
 function has_changes {
   local status=$(git status --porcelain 2>/dev/null | grep -vE '^\?\? ')
