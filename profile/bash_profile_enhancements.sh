@@ -25,4 +25,11 @@ function git_user_name {
   fi
 }
 
+# metaprogramming, like ruby's alias_method, could be useful
+alias_function() {
+  local old_name=$(declare -f $1)
+  local new_name="$2${old_name#$1}"
+  eval "$new_name"
+}
+
 PS1='\h:\W $(__git_ps1 "($(has_changes)%s, $(git_user_name)$_reset) ")\$ '
