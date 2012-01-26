@@ -24,6 +24,7 @@
         mn = merge --no-commit
         cn = cherry-pick --no-commit
         cr = cherry-pick
+        ci = commit
         co = checkout
         st = status
         d  = diff
