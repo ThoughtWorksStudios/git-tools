@@ -30,6 +30,7 @@
         cr = cherry-pick
         co = checkout
         st = status
+        d  = diff
         dc = diff --cached
 	pend = !sh -c 'git log origin/"$1".."$1"' -
         track = !sh -c 'git co --track -b "$1" origin/"$1"' -
