@@ -1,7 +1,3 @@
-[user]
-	name = tworker
-	email = tworker@pair-machine
-
 [core]
 	pager = less -F
 	editor = vim
