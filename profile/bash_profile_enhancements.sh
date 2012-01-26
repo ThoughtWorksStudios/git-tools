@@ -3,6 +3,10 @@ if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
 fi
 
+# allow us to type 'g' for git and still have git autocompletion
+alias g='git'
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
+
 function if_declared {
   local name=$1
   eval "test -z \"\${$name:+''}\"" && return 1
