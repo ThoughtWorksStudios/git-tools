@@ -14,9 +14,9 @@ function if_declared {
 }
 
 # define constants only once
-if_declared _reset || readonly _reset=$(tput sgr0)
-if_declared _red   || readonly _red=$(tput setaf 1)
-if_declared _green || readonly _green=$(tput setaf 2)
+if_declared _reset || readonly _reset="\e[0m"
+if_declared _red   || readonly _red="\e[0;31m"
+if_declared _green || readonly _green="\e[0;32m"
 
 function has_changes {
   local status=$(git status --porcelain 2>/dev/null | grep -vE '^\?\? ')
