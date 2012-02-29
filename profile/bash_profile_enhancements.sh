@@ -43,4 +43,4 @@ alias_function() {
   eval "$new_name"
 }
 
-PS1='\h:\W $(__git_ps1 "($(has_changes)%s, $(git_user_name)$_reset) ")\$ '
+PS1='\h:\W $(__git_ps1 "(%s, $(git_user_name)) ")\$ '
