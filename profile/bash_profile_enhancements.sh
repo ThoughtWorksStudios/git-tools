@@ -1,6 +1,11 @@
 # git bash completion
-if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+if which brew > /dev/null 2>&1; then
+  # HomeBrew puts bash completion here
+  . /usr/local/etc/bash_completion.d/git-completion.bash
+elif [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
+else
+  echo "Cannot find git bash completion script. Please install them manually or with HomeBrew"
 fi
 
 # allow us to type 'g' for git and still have git autocompletion
