@@ -33,3 +33,4 @@
         track = !sh -c 'git co --track -b "$1" origin/"$1"' -
         up = "!f() { git merge origin/`git symbolic-ref HEAD | sed -e 's,^refs/heads/,,'`; }; f"
         fo = fetch origin
+        unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
