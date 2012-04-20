@@ -1,0 +1,37 @@
+#!/bin/bash
+
+function die () {
+  echo "$*"
+  exit 1
+}
+
+function usage () {
+  local me=`basename $0`
+  read -d '' help <<HELP
+
+$me - set this git repo's committer/author to your ThoughtWorks username and email
+      using git config (local).
+
+Usage:
+  $me username
+
+HELP
+  die "$help"
+}
+
+[ $# -ne 1 ] && usage
+
+username=$1
+email=$username@thoughtworks.com
+
+git config user.name "$username" && git config user.email "$email" || die "failed to set committer to $username"
+
+cat <<RESULT
+
+  committer set to:
+    `git var GIT_COMMITTER_IDENT`
+
+  author set to:
+    `git var GIT_AUTHOR_IDENT`
+
+RESULT
