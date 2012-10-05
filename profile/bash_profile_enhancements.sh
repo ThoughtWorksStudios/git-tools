@@ -2,6 +2,7 @@
 if which brew > /dev/null 2>&1; then
   # HomeBrew puts bash completion here
   . /usr/local/etc/bash_completion.d/git-completion.bash
+  . /usr/local/etc/bash_completion.d/git-prompt.sh
 elif [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
 else
